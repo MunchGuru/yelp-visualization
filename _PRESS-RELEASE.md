@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Yelp Visualization
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > People who are looking to discover local services
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > A new interactive way to discover local services that you never knew existed
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > The lack of a visually-appealing/interactive interface for discovering local services
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Creating a visually appealing and interactive interface for discovering local services
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "With Yelp Visualziation, you'll be able to find new services that you never knew you needed"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > It's as easy as clicking a bubble.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I was scpetical at first using the bubble buttons, but now I can't imagine using Yelp without it. I can find places so quickly! Totally life changing! #lifechanged"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > To get started, check out our website at http://yelpvisualization.azurewebsites.net
