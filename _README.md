@@ -4,9 +4,10 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Artur Meyster
+  - __Scrum Master__: Michael Warner
+  - __Git Master__: Arian Faurtosh
+  - __Development Team Members__: Kuni Natsuki
 
 ## Table of Contents
 
