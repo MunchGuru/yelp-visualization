@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var parser = require('body-parser');
 
 // Router
-var router = require('./routes.js');
+// var router = require('./routes.js');
 
 var app = express();
 module.exports.app = app;
@@ -23,8 +23,12 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 
+app.get('/', function(req, res){
+  res.end('NODE IS RUNNING');
+});
+
 // Set up our routes
-app.use("/api", router);
+// app.use("/api", router);
 
 // If we are being run directly, run the server.
 if (!module.parent) {
