@@ -1,0 +1,17 @@
+{
+  "name": "yelp-visualization",
+  "version": "0.0.0",
+  "main": "server/app.js",
+  "dependencies": {
+    "bluebird": "^2.3.0",
+    "body-parser": "^1.9.2",
+    "chai": "^1.9.1",
+    "express": "^4.10.1",
+    "lodash": "^2.4.1",
+    "mocha": "^1.21.4",
+    "morgan": "^1.4.1",
+    "mysql": "^2.4.2",
+    "request": "^2.40.0",
+    "sequelize": "^2.0.4"
+  }
+}
