@@ -9,6 +9,6 @@ var dbconfig = require('./pw');
 //   testfiled3: {type: Sequelize.INTEGER, defaultValue: 0}
 // });
 
-Test.sync();
+// Test.sync();
 
 exports.Test = Test;
