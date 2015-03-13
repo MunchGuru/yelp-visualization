@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 
-app.get('/', function(req, res){
+app.get('/test', function(req, res){
   res.end('NODE IS RUNNING');
 });
 
