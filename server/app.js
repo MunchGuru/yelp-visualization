@@ -10,7 +10,7 @@ var parser = require('body-parser');
 var app = express();
 module.exports.app = app;
 
-var port = process.env.PORT || 4568;
+var port = process.env.port || 4568;
 
 // Set what we are listening on.
 app.set("port", port);
