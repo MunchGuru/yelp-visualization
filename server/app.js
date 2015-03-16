@@ -22,6 +22,7 @@ app.use(parser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(parser.json());
 
+app.use(express.static(__dirname + '/client'));
 
 app.get('/test', function(req, res){
   res.end('NODE IS RUNNING');
@@ -30,8 +31,4 @@ app.get('/test', function(req, res){
 // Set up our routes
 // app.use("/api", router);
 
-// If we are being run directly, run the server.
-if (!module.parent) {
-  app.listen(app.get("port"));
-  console.log("Listening on", app.get("port"));
-}
+module.exports = app;
