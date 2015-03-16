@@ -22,7 +22,7 @@ app.use(parser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(parser.json());
 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/../client'));
 
 app.get('/test', function(req, res){
   res.end('NODE IS RUNNING');
