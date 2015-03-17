@@ -13,16 +13,13 @@ define(function(require, exports, module) {
 	    }
   	});
 	};
-  var post = function(url, data) {
+  var post = function(url, data, callback) {
   	$.ajax({
         url: url,
         contentType: 'application/json',
         type: 'POST',
         data: JSON.stringify(data),
-        success: function(response){
-
-          console.log("Success!", response);
-        },
+        success: callback,
         error: function(err){
           console.log(err);
         }
