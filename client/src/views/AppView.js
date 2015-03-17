@@ -27,11 +27,15 @@ define(function(require, exports, module) {
     };
 
     //Prototype methods.
-    AppView.prototype.populateNodes = function(data, type){
+    AppView.prototype.populateNodes = function(dataArray, type, stateModifier){
       // Populate AppView with nodeViews
-      // Input:
-        // data - array of input data
-        // type - 'category' or 'item' 
+      // Input: 
+        // data: array of input data
+        // type: 'category' or 'item'
+        // stateModifier: 
+      for(var i = 0; i < dataArray.length; i++){
+        this.addNode(dataArray[i]);
+      }
 
     };
 
@@ -39,6 +43,13 @@ define(function(require, exports, module) {
       // Remove all nodes in AppView
 
     };
+
+    AppView.prototype.addNode = function(data, type, stateModifier){
+      // Add nodeView to AppView
+      var newNode = new DummyView();
+      this.add(newNode);
+      // this.add(stateModifier).add(new CategoryView(data))
+    }
 
     
 
