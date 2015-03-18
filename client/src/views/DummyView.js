@@ -23,12 +23,25 @@ define(function(require, exports, module) {
 
         this.add(dummySurface);
 
+        // events from dummySurface is piped to the dummyView
+        dummySurface.pipe(this);
+        // When a dummyView receives a 'click' event, it then fires a 'dummyClick' event
+        // which is then listened by AppView.
+        this._eventInput.on('click', function() {
+          this._eventOutput.emit('dummyClick', this);
+        }.bind(this));
+
+
+
     }
 
     DummyView.prototype = Object.create(View.prototype);
     DummyView.prototype.constructor = DummyView;
 
     DummyView.DEFAULT_OPTIONS = {};
+
+
+
 
     module.exports = DummyView;
 });
