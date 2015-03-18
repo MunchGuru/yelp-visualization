@@ -28,7 +28,7 @@ define(function(require, exports, module) {
         // When a dummyView receives a 'click' event, it then fires a 'dummyClick' event
         // which is then listened by AppView.
         this._eventInput.on('click', function() {
-          this._eventOutput.emit('dummyClick');
+          this._eventOutput.emit('dummyClick', this);
         }.bind(this));
 
 
