@@ -7,12 +7,12 @@ define(function(require, exports, module) {
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
 
-    function DummyView() {
+    function DummyView(data) {
         View.apply(this, arguments);
-
+        var data = data || "Hi, I'm dummy surface!"
         var dummySurface = new Surface({
           size: [100, 150],
-          content: "<h3>Hi!</h3><p>I'm dummy surface!</p>",
+          content: "<p>"+data+"</p>",
           properties: {
             backgroundColor: 'rgb(240, 238, 233)',
             textAlign: 'center',
