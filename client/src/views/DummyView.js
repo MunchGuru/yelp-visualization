@@ -30,9 +30,6 @@ define(function(require, exports, module) {
         this._eventInput.on('click', function() {
           this._eventOutput.emit('dummyClick', this);
         }.bind(this));
-
-
-
     }
 
     DummyView.prototype = Object.create(View.prototype);
