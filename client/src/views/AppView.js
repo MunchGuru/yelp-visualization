@@ -80,6 +80,8 @@ define(function(require, exports, module) {
           // Fire a get request with the query to the server
           // Run this.populateNodes with the new category/items array.
 
+        Util.getData('/api/', this, 'populateNodes');
+        // console.log(node);
         this.hideNodes();
       }.bind(this));
     }
