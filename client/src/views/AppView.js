@@ -39,6 +39,7 @@ define(function(require, exports, module) {
       type = type || null;
       stateModifier = stateModifier || gridLayout;  
       for(var i = 0; i < dataArray.length; i++){
+        console.log(dataArray[i]);
         this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
       }
       this.addListeners();
@@ -61,7 +62,7 @@ define(function(require, exports, module) {
 
     AppView.prototype.addNode = function(data, type, stateModifier){
       // Add nodeView to AppView
-      var newNode = new DummyView();
+      var newNode = new DummyView(data);
 
       this.children.push(newNode);
       this.childrenStateModifier.push(stateModifier);
@@ -79,7 +80,9 @@ define(function(require, exports, module) {
           // Extract the category info from the clicked node
           // Fire a get request with the query to the server
           // Run this.populateNodes with the new category/items array.
-
+        node = node || "";
+        Util.getData('/api/'+node.api, this, 'populateNodes');
+        console.log(node);
         this.hideNodes();
       }.bind(this));
     }
