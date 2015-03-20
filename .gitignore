@@ -18,9 +18,6 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
-# PASSWORD FILE
-server/db/pw.js
-
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
