@@ -56,7 +56,7 @@ router.route('/:cat?').get(function(req, res) {
         console.log(apiURL);
         request(apiURL, function(error, response, body){
           if (!error && response.statusCode === 200) {
-            res.end(body);
+            res.json(JSON.parse(body));
           }else{
             res.writeHead(422, 'incorrect request');
             res.end('please notify arian about this\n'+body);
