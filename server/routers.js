@@ -49,10 +49,10 @@ router.route('/:cat?').get(function(req, res) {
         var percentEncode = function(s) {
           return encodeURIComponent(s).replace(/\*/g, '%2A');
         };
-        // console.log(parameters.oauth_nonce, parameters.oauth_timestamp);
-        // console.log(encodedSignature);
+
 
         var apiURL = url+'?category_filter='+parameters.category_filter+'&sort='+parameters.sort+'&location='+percentEncode(parameters.location)+'&oauth_consumer_key='+parameters.oauth_consumer_key+'&oauth_token='+parameters.oauth_token+'&oauth_signature_method='+parameters.oauth_signature_method+'&oauth_version='+parameters.oauth_version+'&oauth_nonce='+parameters.oauth_nonce+'&oauth_timestamp='+parameters.oauth_timestamp+'&oauth_signature='+encodedSignature;
+        
         console.log(apiURL);
         request(apiURL, function(error, response, body){
           if (!error && response.statusCode === 200) {
