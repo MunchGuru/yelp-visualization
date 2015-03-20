@@ -13,14 +13,18 @@ var strip = function(fluff){
 
 router.route('/:cat?').get(function(req, res) {
   'use strict';
+  console.log(req.params.cat);
 
   
   db.Categories.find({where: {api: req.params.cat}}).complete(function(err, results){
+    console.log(results);
     var id = 0;
     if(results){
       id = results.id;
     }
     db.Categories.findAll({where: {parent: id}}).complete(function(err, results){
+      console.log(results);
+      
       if(results.length !== 0){
         res.json(strip(results));
       }else{
