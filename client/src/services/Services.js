@@ -1,6 +1,6 @@
 // services.js
 // Contains all our utility functions.
-var AppView = require('views/AppView');
+// var AppView = require('views/AppView');
 
 define(function(require, exports, module) {
   var Util = {};

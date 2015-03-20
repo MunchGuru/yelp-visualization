@@ -37,12 +37,20 @@ define(function(require, exports, module) {
         // type: 'category' or 'item'
         // stateModifier: 
       type = type || null;
-      stateModifier = stateModifier || gridLayout;  
-      for(var i = 0; i < dataArray.length; i++){
-        console.log(dataArray[i]);
-        this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
+      stateModifier = stateModifier || gridLayout;
+      // if category
+      if(Array.isArray(dataArray)) { 
+        for(var i = 0; i < dataArray.length; i++){
+          this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
+        }
+        this.addListeners();
+      } else { //if item
+        console.log('itemArray', dataArray);
+        dataArray = dataArray.results;
+        for(var i = 0; i < dataArray.length; i++){
+          this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
+        }
       }
-      this.addListeners();
 
     };
 
@@ -82,7 +90,6 @@ define(function(require, exports, module) {
           // Run this.populateNodes with the new category/items array.
         node = node || "";
         Util.getData('/api/'+node.api, this, 'populateNodes');
-        console.log(node);
         this.hideNodes();
       }.bind(this));
     }
