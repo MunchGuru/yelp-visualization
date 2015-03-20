@@ -1,14 +1,16 @@
 var Sequelize = require('sequelize');
-var dbconfig = require('./pw');
+var dbconfig = require('./pw.js');
 
-// var orm = new Sequelize(dbconfig.database, dbconfig.username, dbconfig.password);
+var orm = new Sequelize(dbconfig.database, dbconfig.username, dbconfig.password, {
+  host: dbconfig.hostname
+});
 
-// var Test = orm.define('test', {
-//   testfield1: {type: Sequelize.STRING, defaultValue: 'anonymous'},
-//   testfield2: Sequelize.STRING,
-//   testfiled3: {type: Sequelize.INTEGER, defaultValue: 0}
-// });
+var Categories = orm.define('categories', {
+  api: {type: Sequelize.STRING},
+  display: Sequelize.STRING,
+  parent: {type: Sequelize.INTEGER, defaultValue: 0}
+});
 
-// Test.sync();
+Categories.sync();
 
-exports.Test = Test;
+exports.Categories = Categories;

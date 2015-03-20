@@ -5,15 +5,18 @@ var morgan = require('morgan');
 var parser = require('body-parser');
 
 // Router
-// var router = require('./routes.js');
+var router = require('./routers.js');
 
 var app = express();
 module.exports.app = app;
 
-var port = process.env.port || 4568;
+var port = process.env.PORT || 4568;
 
 // Set what we are listening on.
-app.set("port", port);
+app.set('port', port);
+
+// 2 for dev, 0 for production
+app.set('json spaces', 2);
 
 // parse application/x-www-form-urlencoded
 app.use(parser.urlencoded({ extended: false }));
@@ -22,16 +25,9 @@ app.use(parser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(parser.json());
 
-
-app.get('/test', function(req, res){
-  res.end('NODE IS RUNNING');
-});
+app.use(express.static(__dirname + '/../client'));
 
 // Set up our routes
-// app.use("/api", router);
+app.use('/api', router);
 
-// If we are being run directly, run the server.
-if (!module.parent) {
-  app.listen(app.get("port"));
-  console.log("Listening on", app.get("port"));
-}
+module.exports = app;
