@@ -59,8 +59,8 @@ var list_hoods = function(set_parameters, callback) {
 
     set_parameters.offset = 20;
     request_yelp(set_parameters, function(err, response, body){
-      var batch_1 = JSON.parse(body);
-      _.forEach(batch_1.businesses, function(value) {
+      var batch_2 = JSON.parse(body);
+      _.forEach(batch_2.businesses, function(value) {
         if(value.location.neighborhoods){
           hoods = hoods.concat(value.location.neighborhoods);
         }
@@ -72,5 +72,18 @@ var list_hoods = function(set_parameters, callback) {
   });
 };
 
+var list_hoods_data = function(data) {
+  'use strict';
+  var hoods = [];
+  _.forEach(data.businesses, function(value) {
+    if(value.location.neighborhoods){
+      hoods = hoods.concat(value.location.neighborhoods);
+    }
+  });
+  data.hoods = _.uniq(hoods);
+  return data;
+};
+
 exports.request_yelp = request_yelp;
 exports.list_hoods = list_hoods;
+exports.list_hoods_data = list_hoods_data;

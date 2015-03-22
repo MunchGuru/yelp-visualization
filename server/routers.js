@@ -27,7 +27,7 @@ router.route('/:cat?/').get(function(req, res) {
       }else{
         yelper.request_yelp({category_filter: req.params.cat}, function(error, response, body){
           if (!error && response.statusCode === 200) {
-            res.json(JSON.parse(body));
+            res.json(yelper.list_hoods_data(JSON.parse(body)));
           }else{
             res.writeHead(422, 'incorrect request');
             res.end('please notify arian about this\n'+body);
