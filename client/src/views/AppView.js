@@ -9,7 +9,7 @@ define(function(require, exports, module) {
     // var CategoryView = require('views/CategoryView');
     // var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
-    var DummyView = require('views/DummyView');
+    var DummyView = require('views/ItemSurface');
 
 
     function AppView() {
@@ -111,7 +111,7 @@ define(function(require, exports, module) {
 
    var  gridLayout = function(maxX, maxY, index, numTotal){
       // dimension of the nodeViews
-      var viewWidth = 100;
+      var viewWidth = 130;
       var viewHeight = 150;
 
       // margin
