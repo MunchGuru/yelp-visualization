@@ -10,7 +10,6 @@ var request_yelp = function(set_parameters, callback) {
   'use strict';
   var httpMethod = 'GET';
   var url = 'http://api.yelp.com/v2/search';
-  // category_filter: req.params.cat,
   
   var default_parameters = {
     location: 'San+Francisco',
@@ -45,5 +44,35 @@ var request_yelp = function(set_parameters, callback) {
 
 };
 
+var list_hoods = function(set_parameters, callback) {
+  'use strict';
+  var hoods = [];
+  request_yelp(set_parameters, function(err, response, body){
+    var batch_1 = JSON.parse(body);
+    _.forEach(batch_1.businesses, function(value) {
+      if(value.location.neighborhoods){
+        hoods = hoods.concat(value.location.neighborhoods);
+      }
+    });
+
+    // Get 20-40 as well
+
+    // set_parameters.offset = 20;
+    // request_yelp(set_parameters, function(err, response, body){
+    //   var batch_1 = JSON.parse(body);
+    //   _.forEach(batch_1.businesses, function(value) {
+    //     if(value.location.neighborhoods){
+    //       hoods = hoods.concat(value.location.neighborhoods);
+    //     }
+    //   });
+    //
+    //   callback(_.uniq(hoods));
+    // });
+
+    callback(_.uniq(hoods));
+  });
+
+};
 
 exports.request_yelp = request_yelp;
+exports.list_hoods = list_hoods;
