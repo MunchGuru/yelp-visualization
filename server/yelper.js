@@ -57,21 +57,19 @@ var list_hoods = function(set_parameters, callback) {
 
     // Get 20-40 as well
 
-    // set_parameters.offset = 20;
-    // request_yelp(set_parameters, function(err, response, body){
-    //   var batch_1 = JSON.parse(body);
-    //   _.forEach(batch_1.businesses, function(value) {
-    //     if(value.location.neighborhoods){
-    //       hoods = hoods.concat(value.location.neighborhoods);
-    //     }
-    //   });
-    //
-    //   callback(_.uniq(hoods));
-    // });
+    set_parameters.offset = 20;
+    request_yelp(set_parameters, function(err, response, body){
+      var batch_1 = JSON.parse(body);
+      _.forEach(batch_1.businesses, function(value) {
+        if(value.location.neighborhoods){
+          hoods = hoods.concat(value.location.neighborhoods);
+        }
+      });
+    
+      callback(_.uniq(hoods));
+    });
 
-    callback(_.uniq(hoods));
   });
-
 };
 
 exports.request_yelp = request_yelp;
