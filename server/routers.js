@@ -12,7 +12,7 @@ var strip = function(fluff){
   return results;
 };
 
-router.route('/:cat?/').get(function(req, res) {
+router.route('/:cat?/:hood?/').get(function(req, res) {
   'use strict';
 
   
@@ -25,9 +25,15 @@ router.route('/:cat?/').get(function(req, res) {
       if(results.length !== 0){
         res.json(strip(results));
       }else{
-        yelper.request_yelp({category_filter: req.params.cat}, function(error, response, body){
+        var set_params = {category_filter: req.params.cat};
+
+        if(req.params.hood !== undefined){
+          console.log(req.params.hood);
+          set_params.location = req.params.hood + ' San+Francisco';
+        }
+        yelper.request_yelp(set_params, function(error, response, body){
           if (!error && response.statusCode === 200) {
-            res.json(yelper.list_hoods_data(JSON.parse(body)));
+            res.json(yelper.list_hoods_data(JSON.parse(body), req.params.cat));
           }else{
             res.writeHead(422, 'incorrect request');
             res.end('please notify arian about this\n'+body);

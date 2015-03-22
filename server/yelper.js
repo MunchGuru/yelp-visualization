@@ -72,7 +72,7 @@ var list_hoods = function(set_parameters, callback) {
   });
 };
 
-var list_hoods_data = function(data) {
+var list_hoods_data = function(data, cat) {
   'use strict';
   var hoods = [];
   _.forEach(data.businesses, function(value) {
@@ -80,7 +80,18 @@ var list_hoods_data = function(data) {
       hoods = hoods.concat(value.location.neighborhoods);
     }
   });
-  data.hoods = _.uniq(hoods);
+
+  hoods = _.uniq(hoods);
+
+  _.forEach(hoods, function(value, key) {
+    hoods[key] = {
+      display: value,
+      escape: qs.escape(value),
+      uri: '/api/' + cat + '/' + qs.escape(value)
+    };
+  });
+
+  data.hoods = hoods;
   return data;
 };
 
