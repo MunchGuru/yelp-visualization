@@ -17,8 +17,8 @@ var request_yelp = function(set_parameters, callback) {
   };
 
   var required_parameters = {
-    oauth_consumer_key : process.env.oauth_consumer_key || '5vqhWS7N458VxObbh8FkZA',
-    oauth_token : process.env.oauth_token || 'YqLN73KG_trkg5IELGG90WJt0IsERj4U',
+    oauth_consumer_key : process.env.oauth_consumer_key,
+    oauth_token : process.env.oauth_token,
     oauth_nonce : n(),
     oauth_timestamp : n().toString().substr(0,10),
     oauth_signature_method : 'HMAC-SHA1',
@@ -27,8 +27,8 @@ var request_yelp = function(set_parameters, callback) {
 
   var parameters = _.assign(default_parameters, set_parameters, required_parameters);
 
-  var consumerSecret = process.env.customerconsumerSecret || 'k2r5YixvkE8YfwvcZ0JpSi6Rj_o';
-  var tokenSecret = process.env.tokenSecret || 'k6PDzaFsgQRjvgM7eDmCMhl08bI';
+  var consumerSecret = process.env.consumerSecret;
+  var tokenSecret = process.env.tokenSecret;
   var signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, { encodeSignature: false});
 
   parameters.oauth_signature = signature;
