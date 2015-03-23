@@ -8,7 +8,8 @@ define(function(require, exports, module) {
 
     function CategoryView(data) {
         View.apply(this, arguments);
-        var data = data || "Hi, I'm dummy surface!"
+        var data = data || "Hi, I'm dummy surface!";
+        console.log(data);
         var categorySurface = new Surface({
           size: [200, 200],
           content: "<h3>"+data.display+"</h3>",

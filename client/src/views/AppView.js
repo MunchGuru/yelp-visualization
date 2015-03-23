@@ -6,10 +6,13 @@ define(function(require, exports, module) {
 
     var Util = require('services/Services');
 
+
     // var CategoryView = require('views/CategoryView');
     var ItemView = require('views/ItemView');
-    // var NodeView = require('views/NodeView');
     var CategoryView = require('views/CategoryView');
+    // var ItemView = require('views/ItemView');
+    // var NodeView = require('views/NodeView');
+    // var DummyView = require('views/DummyView');
 
 
 
@@ -124,8 +127,8 @@ define(function(require, exports, module) {
 
    var  gridLayout = function(maxX, maxY, index, numTotal){
       // dimension of the nodeViews
-      var viewWidth = 190;
-      var viewHeight = 200;
+      var viewWidth = 130;
+      var viewHeight = 150;
 
       // margin
       var marginHoriz = 30;
