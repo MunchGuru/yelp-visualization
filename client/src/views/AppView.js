@@ -9,7 +9,9 @@ define(function(require, exports, module) {
     // var CategoryView = require('views/CategoryView');
     var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
+<<<<<<< HEAD
     var DummyView = require('views/DummyView');
+=======
 
 
     function AppView() {
