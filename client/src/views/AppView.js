@@ -33,11 +33,14 @@ define(function(require, exports, module) {
 
 
     //Prototype methods.
+    AppView.prototype.initialize = function(){
+      
+    }    
+
     AppView.prototype.populateNodes = function(dataArray, stateModifier){
       // Populate AppView with nodeViews
       // Input: 
         // data: array of input data
-        // type: 'category' or 'item'
         // stateModifier: 
       var type;
       stateModifier = stateModifier || gridLayout;
