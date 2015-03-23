@@ -9,7 +9,6 @@ define(function(require, exports, module) {
     // var CategoryView = require('views/CategoryView');
     var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
-    // var DummyView = require('views/ItemSurface');
     var DummyView = require('views/DummyView');
 
 
@@ -34,7 +33,7 @@ define(function(require, exports, module) {
 
     //Prototype methods.
     AppView.prototype.initialize = function(){
-      
+      Util.getData('/api/', this, 'populateNodes');
     }    
 
     AppView.prototype.populateNodes = function(dataArray, stateModifier){
