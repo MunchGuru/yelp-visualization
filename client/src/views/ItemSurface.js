@@ -36,7 +36,7 @@ define(function(require, exports, module) {
 		    
 		    textAlign: 'center',
 		    padding: '5px',
-		    border: '5px solid #aaa',
+		    border: '1px solid #aaa',
 		    'border-radius': '20px',
 		    '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
 		    filter: 'grayscale(50%) sepia(0.2) brightness(125%)',
