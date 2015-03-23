@@ -15,7 +15,7 @@ define(function(require, exports, module) {
           properties: {
             color: 'white',
             backgroundColor: 'rgb(240, 238, 233)',
-            backgroundImage: 'url("'+data.image_url+'")';
+            backgroundImage: 'url("'+data.image_url+'")',
             backgroundSize: '400px',
             backgroundRepeat: 'no-repeat',
             textAlign: 'center',

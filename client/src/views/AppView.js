@@ -9,9 +9,8 @@ define(function(require, exports, module) {
     // var CategoryView = require('views/CategoryView');
     var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
-<<<<<<< HEAD
-    var DummyView = require('views/DummyView');
-=======
+    var CategoryView = require('views/CategoryView');
+
 
 
     function AppView() {
@@ -79,9 +78,13 @@ define(function(require, exports, module) {
 
     AppView.prototype.addNode = function(data, type, stateModifier){
       // Add nodeView to AppView
+<<<<<<< HEAD
       var newNode;
       if(type === 'category') {
         newNode = new DummyView(data);
+=======
+      var newNode = new CategoryView(data);
+>>>>>>> added categoryView css
 
         //pipe event listener
         newNode.pipe(this);
