@@ -28,12 +28,12 @@ define(function(require, exports, module) {
         }
         
     	var css = {
-		    backgroundColor: 'rgb(240, 238, 233)',
+		    backgroundColor: 'rgb(240, 238, 240)',
 		    
 		    textAlign: 'center',
 		    padding: '5px',
-		    border: '5px solid rgba(255,255,255, 0.35)',
-		    'border-radius': '250px',
+		    border: '5px solid #aaa',
+		    'border-radius': '20px',
 		    '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
 		    filter: 'grayscale(50%) sepia(0.2) brightness(125%)',
 		    background: '#888',
