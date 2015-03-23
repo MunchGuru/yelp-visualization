@@ -1,5 +1,4 @@
-// This is a dummy view created by KN to build out the AppView
-// It should be swapped and deleted once we have the other views.
+// This is a category view created by Artur to build out the AppView
 
 define(function(require, exports, module) {
     var View = require('famous/core/View');
@@ -7,16 +6,16 @@ define(function(require, exports, module) {
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
 
-    function DummyView(data) {
+    function CategoryView(data) {
         View.apply(this, arguments);
         var data = data || "Hi, I'm dummy surface!"
-        var dummySurface = new Surface({
+        var categorySurface = new Surface({
           size: [200, 200],
           content: "<h3>"+data.display+"</h3>",
           properties: {
             color: 'white',
             backgroundColor: 'rgb(240, 238, 233)',
-            backgroundImage: 'url("http://www.deliciouslysortedibiza.com/backgrounds/bg-nightlife.jpg")', //'url("'+data.photoUrl+'")';
+            backgroundImage: 'url("'+data.image_url+'")';
             backgroundSize: '400px',
             backgroundRepeat: 'no-repeat',
             textAlign: 'center',
@@ -31,24 +30,24 @@ define(function(require, exports, module) {
         });
         //this.options = data;
 
-        this.add(dummySurface);
+        this.add(categorySurface);
 
-        // events from dummySurface is piped to the dummyView
-        dummySurface.pipe(this);
-        // When a dummyView receives a 'click' event, it then fires a 'dummyClick' event
+        // events from categorySurface is piped to the CategoryView
+        categorySurface.pipe(this);
+        // When a CategoryView receives a 'click' event, it then fires a 'dummyClick' event
         // which is then listened by AppView.
         this._eventInput.on('click', function() {
           this._eventOutput.emit('dummyClick', this.options);
         }.bind(this));
     }
 
-    DummyView.prototype = Object.create(View.prototype);
-    DummyView.prototype.constructor = DummyView;
+    CategoryView.prototype = Object.create(View.prototype);
+    CategoryView.prototype.constructor = CategoryView;
 
-    DummyView.DEFAULT_OPTIONS = {};
-
-
+    CategoryView.DEFAULT_OPTIONS = {};
 
 
-    module.exports = DummyView;
+
+
+    module.exports = CategoryView;
 });
