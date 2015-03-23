@@ -81,14 +81,9 @@ define(function(require, exports, module) {
 
     AppView.prototype.addNode = function(data, type, stateModifier){
       // Add nodeView to AppView
-<<<<<<< HEAD
       var newNode;
       if(type === 'category') {
-        newNode = new DummyView(data);
-=======
       var newNode = new CategoryView(data);
->>>>>>> added categoryView css
-
         //pipe event listener
         newNode.pipe(this);
 
