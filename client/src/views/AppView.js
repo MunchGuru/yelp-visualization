@@ -6,10 +6,14 @@ define(function(require, exports, module) {
 
     var Util = require('services/Services');
 
+
     // var CategoryView = require('views/CategoryView');
     var ItemView = require('views/ItemView');
+    var CategoryView = require('views/CategoryView');
+    // var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
-    var DummyView = require('views/DummyView');
+    // var DummyView = require('views/DummyView');
+
 
 
     function AppView() {
@@ -79,8 +83,7 @@ define(function(require, exports, module) {
       // Add nodeView to AppView
       var newNode;
       if(type === 'category') {
-        newNode = new DummyView(data);
-
+      var newNode = new CategoryView(data);
         //pipe event listener
         newNode.pipe(this);
 
