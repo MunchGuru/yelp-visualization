@@ -24,7 +24,11 @@ define(function(require, exports, module) {
             border: '1px solid rgba(255,255,255, 0.35)',
             'border-radius': '20px',
             '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
-            filter: 'grayscale(50%) sepia(0.2) brightness(125%)'
+            filter: 'grayscale(50%) sepia(0.2) brightness(125%)',
+            'box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+            '-moz-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+            '-webkit-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+            '-o-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)'
           }
         });
         //this.options = data;
