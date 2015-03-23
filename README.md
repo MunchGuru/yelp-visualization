@@ -27,9 +27,27 @@
 
 - Node 0.10.x
 - Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- MySQL 5.6.x
+
+## Enviroment Variables (`process.env`) being used
+
+### MySQL 
+
+- dbDatabase          // MySQL Database
+- dbUsername          // MySQL Username
+- dbPassword          // MySQL Password
+- dbHostname          // MySQL Hostname
+
+### Yelp API
+
+- oauth_consumer_key  // Yelp API Consumer Key
+- consumerSecret      // Yelp API Consumer Secret
+- oauth_token         // Yelp API Token
+- tokenSecret         // Yelp API Token Secret
+
+### Port
+
+- PORT                // Used by azure
 
 ## Development
 
