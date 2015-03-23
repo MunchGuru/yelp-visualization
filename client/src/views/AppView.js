@@ -18,6 +18,8 @@ define(function(require, exports, module) {
         this.children = [];
         this.childrenStateModifier = [];
 
+        //Set up event listener.
+        this.addListeners();
     }
 
     AppView.prototype = Object.create(View.prototype);
@@ -45,11 +47,11 @@ define(function(require, exports, module) {
         for(var i = 0; i < dataArray.length; i++){
           this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
         }
-        this.addListeners();
+        // this.addListeners();
       } else { //if item
         type = 'item';
         console.log('itemArray', dataArray);
-        dataArray = dataArray.results;
+        dataArray = dataArray.businesses;
         for(var i = 0; i < dataArray.length; i++){
           this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
         }
@@ -76,6 +78,10 @@ define(function(require, exports, module) {
       var newNode;
       if(type === 'category') {
         newNode = new DummyView(data);
+
+        //pipe event listener
+        newNode.pipe(this);
+
       } else if (type === 'item') {
         newNode = new ItemView(data);
       }
@@ -87,14 +93,7 @@ define(function(require, exports, module) {
     };
 
     AppView.prototype.addListeners = function(){
-      for( var i = 0; i <this.children.length; i++) {
-        this.children[i].pipe(this); //pipe the events from child node to parent.
-      }
       this._eventInput.on('dummyClick', function(node){
-        // pseudocode:
-          // Extract the category info from the clicked node
-          // Fire a get request with the query to the server
-          // Run this.populateNodes with the new category/items array.
         node = node || "";
         Util.getData('/api/'+node.api, this, 'populateNodes');
         this.hideNodes();
