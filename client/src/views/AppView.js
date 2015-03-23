@@ -122,8 +122,8 @@ define(function(require, exports, module) {
 
    var  gridLayout = function(maxX, maxY, index, numTotal){
       // dimension of the nodeViews
-      var viewWidth = 130;
-      var viewHeight = 150;
+      var viewWidth = 190;
+      var viewHeight = 200;
 
       // margin
       var marginHoriz = 30;
