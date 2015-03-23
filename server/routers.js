@@ -7,7 +7,7 @@ var strip = function(fluff){
   'use strict';
   var results = [];
   fluff.forEach(function(item){
-    results.push({'display':item.display, 'api': item.api});
+    results.push({'display':item.display, 'api': item.api, 'img_url': item.img_url});
   });
   return results;
 };

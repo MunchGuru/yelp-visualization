@@ -2,10 +2,31 @@
 h3{
 	color:white;
 	background: rgba(0,0,0, 0.75);
-	border: 3px solid rgba(255,255,255, 0.35);
+	border: 3px solid rgba(170,170,170, 0.55);
 	padding: 5px;
 	padding-top: 8px;
-    border-radius: 250px;
-    margin-left: 10%;
-    margin-right:10%;
+    border-radius: 10px;
+}
+
+h4{
+	color:white;
+	background: rgba(0,0,0, 0.75);
+	border: 2px solid rgba(170,170,170, 0.55);
+	padding: 3px;
+	padding-top: 5px;
+    border-radius: 5px;
+}
+
+body{
+
+background: #5979a5; /* Old browsers */
+background: -moz-linear-gradient(top,  #5979a5 0%, #828180 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5979a5), color-stop(100%,#828180)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #5979a5 0%,#828180 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #5979a5 0%,#828180 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #5979a5 0%,#828180 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #5979a5 0%,#828180 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5979a5', endColorstr='#828180',GradientType=0 ); /* IE6-9 */
+
+
 }
