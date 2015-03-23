@@ -9,22 +9,20 @@ define(function(require, exports, module) {
     function CategoryView(data) {
         View.apply(this, arguments);
         var data = data || "Hi, I'm dummy surface!";
-        console.log(data);
+        var img_url = data.img_url;
         var categorySurface = new Surface({
           size: [200, 200],
           content: "<h3>"+data.display+"</h3>",
           properties: {
             color: 'white',
             backgroundColor: 'rgb(240, 238, 233)',
-            backgroundImage: 'url("'+data.image_url+'")',
+            backgroundImage: 'url("'+img_url+'")',
             backgroundSize: '400px',
             backgroundRepeat: 'no-repeat',
             textAlign: 'center',
-            marginLeft: '30%',
-            marginTop: '10%',
             padding: '5px',
             border: '1px solid rgba(255,255,255, 0.35)',
-            'border-radius': '250px',
+            'border-radius': '20px',
             '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
             filter: 'grayscale(50%) sepia(0.2) brightness(125%)'
           }
