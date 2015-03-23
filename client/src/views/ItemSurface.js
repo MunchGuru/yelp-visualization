@@ -26,10 +26,7 @@ define(function(require, exports, module) {
 			data.left = itemData.left;
 			data.size = itemData.size || 200;
         }
-        //if you are a seletion or filter
-        else{
-        	console.log(itemData)
-        }
+        
     	var css = {
 		    backgroundColor: 'rgb(240, 238, 233)',
 		    
@@ -39,7 +36,13 @@ define(function(require, exports, module) {
 		    'border-radius': '250px',
 		    '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
 		    filter: 'grayscale(50%) sepia(0.2) brightness(125%)',
-		    background: '#888'
+		    background: '#888',
+		
+		    'box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+		    '-moz-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+		    '-webkit-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)',
+		    '-o-box-shadow': '5px -5px 5px rgba(0,0,0,0.6)' 
+
 		  }
 		
 
@@ -65,7 +68,7 @@ define(function(require, exports, module) {
     	if(data.stars%1){
     		starsString += '<img style="width:20px;height:20px;" src="./src/views/img/star-half.png"/>'
     	}
-    	console.log(data.stars, starsString)
+    	
 		var basicSurface = new Surface({
 		  content: "<h3>"+data.name+"</h3>" + starsString,
 		  size: [data.size,data.size],
