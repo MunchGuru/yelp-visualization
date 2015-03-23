@@ -10,17 +10,7 @@ define(function(require, exports, module) {
     function initApp() {
         var appView = new AppView();
         mainContext.add(appView);
-
-        appView.populateNodes([
-            {
-                "display": "Restaurants",
-                "api": "restaurants"
-              },
-              {
-                "display": "Nightlife",
-                "api": "nightlife"
-              }
-        ]);
+        appView.initialize();
     }
 
     initApp();
