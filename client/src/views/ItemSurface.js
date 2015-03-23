@@ -38,8 +38,8 @@ define(function(require, exports, module) {
 		    border: '5px solid rgba(255,255,255, 0.35)',
 		    'border-radius': '250px',
 		    '-webkit-filter':'grayscale(50%) sepia(0.2) brightness(125%)',
-		    filter: 'grayscale(50%) sepia(0.2) brightness(125%)'
-		    
+		    filter: 'grayscale(50%) sepia(0.2) brightness(125%)',
+		    background: '#888'
 		  }
 		
 
