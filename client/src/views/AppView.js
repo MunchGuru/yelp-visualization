@@ -7,9 +7,10 @@ define(function(require, exports, module) {
     var Util = require('services/Services');
 
     // var CategoryView = require('views/CategoryView');
-    // var ItemView = require('views/ItemView');
+    var ItemView = require('views/ItemView');
     // var NodeView = require('views/NodeView');
-    var DummyView = require('views/ItemSurface');
+    // var DummyView = require('views/ItemSurface');
+    var DummyView = require('views/DummyView');
 
 
     function AppView() {
@@ -30,21 +31,23 @@ define(function(require, exports, module) {
 
 
     //Prototype methods.
-    AppView.prototype.populateNodes = function(dataArray, type, stateModifier){
+    AppView.prototype.populateNodes = function(dataArray, stateModifier){
       // Populate AppView with nodeViews
       // Input: 
         // data: array of input data
         // type: 'category' or 'item'
         // stateModifier: 
-      type = type || null;
+      var type;
       stateModifier = stateModifier || gridLayout;
       // if category
       if(Array.isArray(dataArray)) { 
+        type = 'category';
         for(var i = 0; i < dataArray.length; i++){
           this.addNode(dataArray[i], type, stateModifier(this.options.screenWidth, this.options.screenHeight, i, dataArray.length));
         }
         this.addListeners();
       } else { //if item
+        type = 'item';
         console.log('itemArray', dataArray);
         dataArray = dataArray.results;
         for(var i = 0; i < dataArray.length; i++){
@@ -70,8 +73,12 @@ define(function(require, exports, module) {
 
     AppView.prototype.addNode = function(data, type, stateModifier){
       // Add nodeView to AppView
-      var newNode = new DummyView(data);
-
+      var newNode;
+      if(type === 'category') {
+        newNode = new DummyView(data);
+      } else if (type === 'item') {
+        newNode = new ItemView(data);
+      }
       this.children.push(newNode);
       this.childrenStateModifier.push(stateModifier);
 
