@@ -18,13 +18,17 @@ define(function(require, exports, module) {
     	if(itemData.name){
 	    	data.name = itemData.name;
 			data.stars = itemData.rating || 2.5;
-			data.disc = itemData.disc || 'No Details at this time.';
+			data.disc = itemData.snippet_text || 'No Details at this time.';
 			data.url = itemData.url || 'https://www.google.com';
 			data.pic = itemData.image_url || undefined;
 			data.phoneNumber = itemData.display_phone || 'No Phone Number Available';
 			data.top = itemData.top;
 			data.left = itemData.left;
 			data.size = itemData.size || 200;
+			if(itemData.location) {
+				data.loc = itemData.location.display_address || "Address not available";
+			}
+			data.revCount = itemData.review_count || 0;
         }
         
     	var css = {
@@ -45,28 +49,30 @@ define(function(require, exports, module) {
 
 		  }
 		
-
-        var advancedSurface = new Surface({
-		  content: "<h4>"+data.name+"</h4>\
-		  			<div>" + data.phoneNumber + "</div>\
-		  			<a href='"+data.url+"'>link to website</a>\
-			        <p>"+data.disc+"</p>",
-
-		  size: [data.size,data.size],
-		  properties: css
-		});
-
         //sets the background image if it is available
-		if(data.pic){
-	    	css['background-image'] = 'url("'+data.pic+'")';
-	    	css['background-size'] = data.size+'px';
-    	}
     	var starsString = ''
     	for (var i = 0; i < Math.floor(data.stars); i++) {
     		starsString += '<img style="width:20px;height:20px;" src="./src/views/img/star.png"/>';
     	};
     	if(data.stars%1){
     		starsString += '<img style="width:20px;height:20px;" src="./src/views/img/star-half.png"/>'
+    	}
+
+        var advancedSurface = new Surface({
+		  content: "<h4>"+data.name+"</h4>\
+			        <p>"+data.disc+"</p>\
+			        <p>"+data.loc+"</p>\
+		  			<div>" + data.phoneNumber + "</div>\
+		  			<div>"+ starsString + "</div>\
+		  			<a href='"+data.url+"'>Website</a>",
+
+		  size: [data.size*1.5,data.size*1.5],
+		  properties: css
+		});
+
+		if(data.pic){
+	    	css['background-image'] = 'url("'+data.pic+'")';
+	    	css['background-size'] = data.size+'px';
     	}
     	
 		var basicSurface = new Surface({
