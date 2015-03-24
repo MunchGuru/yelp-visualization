@@ -17,6 +17,7 @@
     "nonce": "^1.0.3",
     "oauth-signature": "^1.3.0",
     "request": "^2.40.0",
-    "sequelize": "^2.0.4"
+    "sequelize": "^2.0.4",
+    "supertest": "^0.15.0"
   }
 }
